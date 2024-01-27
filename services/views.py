@@ -16,11 +16,12 @@ class ServiceView(ListCreateAPIView):
   user=self.request.user
   return serializer.save(user=user)
  
- class ServicesDetailView(RetrieveUpdateAPIView):
+class ServicesDetailView(RetrieveUpdateAPIView):
+  authentication_classes=[JWTAuthentication]
+  permission_classes=[IsAuthenticated]
+  
   queryset=Service.objects.all()
   serializer_class= ServiceSerializer
 
-#   def perform_update(self, serializer):
-   
-#    return super().perform_update(serializer)
+
   
