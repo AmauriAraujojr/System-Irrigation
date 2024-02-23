@@ -6,8 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class ServiceView(ListCreateAPIView):
- authentication_classes=[JWTAuthentication]
- permission_classes=[IsAuthenticated]
+#  authentication_classes=[JWTAuthentication]
+#  permission_classes=[IsAuthenticated]
 
  queryset= Service.objects.all()
  serializer_class= ServiceSerializer

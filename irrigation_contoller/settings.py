@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     "users",
     "services",
     "rest_framework",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -51,7 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
+    ]
 
 ROOT_URLCONF = "irrigation_contoller.urls"
 
@@ -140,3 +142,10 @@ SIMPLE_JWT = {
 
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',)
 }
+
+CORS_ALLOWED_ORIGINS = [
+	'http://localhost:3000',
+    'http://localhost:5173'
+
+
+]
